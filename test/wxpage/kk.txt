@@ -1,0 +1,92 @@
+// Page({
+
+// 	/**
+// 	 * 页面的初始数据
+// 	 */
+// 	data: {
+// 		pageNum: 1,
+// 		pageSize: 20,
+// 		mainBgColor: '', // 小站主背景色
+// 		isLongScreen: false, // 判断是否为iPhonex系列屏幕
+// 		name: '',
+// 		hasSearch: false,
+// 		list: []
+// 	},
+
+// 	/**
+// 	 * 生命周期函数--监听页面加载
+// 	 */
+// 	async onLoad(options) {
+// 		const {
+// 			staffId = null
+// 		} = options;
+// 		this.setData({
+// 			isLongScreen: app.globalData.isLongScreen,
+// 			mainBgColor: app.globalData.mainBgColor,
+// 			staffId: staffId
+// 		})
+// 		wx.setNavigationBarTitle({
+// 			title: '基金搜索'
+// 		})
+// 		// 禁用页面右上角转发
+// 		wx.hideShareMenu();
+// 	},
+
+// 	/**
+//      * 页面上拉触底事件的处理函数
+//      */
+//     onReachBottom() {
+// 		const { list, total = 0 } = this.data
+//         if (!(list.length >= total)) {
+//             this.getList(true)
+//         }
+//     },
+
+// 	searchInput(e) {
+// 		const { value = '' } = e.detail;
+// 		this.setData({ name: value, pageNum: 1 })
+// 		if (this.timeout)
+// 		    clearTimeout(this.timeout);
+// 	    this.timeout = setTimeout(() => {
+// 	        this.getList()
+// 	    }, 500);
+//     },
+
+// 	async getList(pullDown) {
+//         this.setData({ hasSearch: true })
+// 		const { name, pageSize, pageNum, staffId } = this.data
+//         const data = { staffId, pageSize, pageNum }
+//         if (parseFloat(name).toString() === 'NaN') {
+//             data.fundNameAbbr = name
+//         } else {
+//             data.fundCode = name
+//         }
+// 		if (name.trim() === '') {
+// 			this.setData({ list: [], pageNum: 1 })
+//             return false
+//         }
+//         const res = await ajax('fundSearchList', data, true, true)
+//         const { total, list } = res.retdata
+//         this.setData({ list: (pullDown ? [...this.data.list, ...list] : list), total, pageNum: pageNum + 1 })
+// 	},
+
+// 	goToDetail(e) {
+// 		// 经理视图
+// 		if (app.globalData.isManager) {
+// 			WxService.navigateTo('/pack-manager/pages/product-detail/product-detail', {
+// 				id: e.currentTarget.dataset.id
+// 			});
+// 		} else {
+// 			RecordService.getSnapshot({
+// 				objId: e.currentTarget.dataset.id, // 对象id，如新闻id、早报id、产品id、小站的经理id
+// 				snapshotType: PointConfig.SNAPSHOT_TYPE.PRODUCT, // 快照类型 0新闻  1产品  2早报　3小站
+// 				staffId: this.data.staffId, // 转发时的经理id
+// 			}, retdata => {
+// 				WxService.navigateTo('/pack-client/pages/client-product-detail/client-product-detail', {
+// 					snapshotId: retdata.snapshotId,
+// 					staffId: this.data.staffId
+// 				});
+// 			})
+// 		}
+// 	}
+// })

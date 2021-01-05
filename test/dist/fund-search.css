@@ -1,0 +1,146 @@
+.fundSearch {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.fundSearch .search-box {
+    background-color: #fff;
+    height: 0.88rem;
+    padding: 0.15rem 0.30rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+}
+
+.fundSearch .search-box .search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 0.58rem;
+    border-radius: 0.34rem;
+    background-color: #F0F0F0;
+    color: #C8C8C8;
+}
+
+.fundSearch .search-box .search .czsearch {
+    margin: 0.04rem 0.10rem 0 0.28rem;
+    font-size: 0.32rem;
+}
+
+.fundSearch .search-box .search input {
+    border: none;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    background-color: transparent;
+}
+
+.fundSearch .result{
+    position: relative;
+    top: 1.02rem;
+    text-align: center;
+}
+
+.fundSearch .result .list-box{
+    text-align: left;
+    background-color: #fff;
+}
+
+.fundSearch .result .list-box .p {
+    border-bottom: 0.01rem solid #EBEBEB;
+    line-height: 0.88rem;
+    padding: 0 0.54rem;
+}
+
+.fundSearch .result .list-box .net-value {
+    display: flex;
+    height: 1.50rem;
+    padding: 0 0.54rem;
+    align-items: center;
+    border-bottom: 0.01rem solid #EBEBEB;
+}
+
+.fundSearch .result .list-box .net-value .name {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+}
+
+.fundSearch .result .list-box .net-value .name text:first-child {
+    font-size: 0.28rem;
+    font-weight: 400;
+    color: rgba(17,17,17,1);
+    line-height: 0.40rem;
+}
+
+.fundSearch .result .list-box .net-value .name text:last-child {
+    font-size: 0.24rem;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 0.33rem;
+}
+
+.fundSearch .result .list-box .net-value .rate {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.fundSearch .result .list-box .net-value .rate text:first-child {
+    font-size: 0.28rem;
+    font-weight: 400;
+    color: rgba(17,17,17,1);
+    line-height: 0.40rem;
+}
+
+.fundSearch .result .list-box .net-value .rate text:last-child {
+    font-size: 0.28rem;
+    font-weight: 600;
+    color: rgba(247,68,68,1);
+    line-height: 0.40rem;
+}
+
+.fundSearch .result .list-box .net-value .rate .up {
+  color: #F74444 !important;
+}
+
+.fundSearch .result .list-box .net-value .rate .down {
+  color: #07C160 !important;
+}
+
+.fundSearch .result .empty-box {
+    margin: 1.48rem auto 0;
+}
+
+.fundSearch .result .empty-box .img{
+    width: 1.95rem;
+    height: 1.94rem;
+}
+
+.fundSearch .result .empty-box .p1{
+    font-size: 0.28rem;
+    font-weight: 400;
+    color: rgba(51,51,51,1);
+    line-height: 0.40rem;
+}
+
+.fundSearch .result .empty-box .p2{
+    font-size: 0.24rem;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 0.33rem;
+}
+
+.text-ellipsis-line-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

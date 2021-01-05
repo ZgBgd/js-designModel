@@ -1,0 +1,6 @@
+<view class="mmm">
+	<view wx:if="{{show}}"></view>
+	<view wx:for="{{5}}">
+		<text>{{item}}</text>
+	</view>
+</view>
